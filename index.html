@@ -1,68 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Smart Tech Habits That Will Instantly Boost Your Daily Productivity</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
-        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h1 { color: #2c3e50; font-size: 28px; margin-bottom: 10px; }
-        h3 { color: #34495e; margin-top: 25px; }
-        p { margin-bottom: 15px; }
-        .image-box { text-align: center; margin: 20px 0; }
-        .image-box img { max-width: 100%; height: auto; border-radius: 6px; }
-        .ad-container { margin: 30px 0; padding: 15px; background: #f1f1f1; text-align: center; border: 1px dashed #ccc; border-radius: 6px; }
-        .meta-info { font-size: 14px; color: #777; margin-bottom: 20px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Your Free Resource</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #111418;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Modal Utama Putih */
+  .modal {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 45px 30px 35px;
+    width: 90%;
+    max-width: 480px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+  }
+
+  /* Logo 4 Kotak di Atas */
+  .logo-icon {
+    display: grid;
+    grid-template-columns: 16px 16px;
+    gap: 4px;
+    justify-content: center;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .logo-icon div {
+    width: 16px;
+    height: 16px;
+    background-color: #e74c3c;
+    border-radius: 2px;
+  }
+  .logo-icon .top-right {
+    border-radius: 2px 8px 2px 2px; /* Memberikan aksen melengkung sedikit seperti gambar */
+  }
+
+  h1 {
+    font-size: 22px;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: -0.3px;
+  }
+
+  /* Timer */
+  .timer-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .t-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 52px;
+  }
+  .t-num {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: #d32f2f; /* Merah untuk angka */
+    letter-spacing: 1px;
+  }
+  .t-lbl {
+    font-size: 10px;
+    color: #95a5a6;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+  }
+  .t-sep {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d32f2f;
+    margin-top: -2px;
+  }
+
+  .expire-text {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin-bottom: 32px;
+  }
+
+  /* Tombol Bersebelahan (Horizontal) */
+  .btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .btn {
+    flex: 1;
+    padding: 15px 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+    border: none;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+  .btn-dark {
+    background-color: #2c3e50; /* Gelap / Navy */
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+  }
+  .btn-red {
+    background-color: #e74c3c; /* Merah */
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  }
+
+  /* Footer Links */
+  .footer {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #7f8c8d;
+  }
+  .footer a {
+    color: #7f8c8d;
+    text-decoration: none;
+    margin: 0 6px;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 380px) {
+    .btn-group {
+      flex-direction: column;
+    }
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <h1>5 Smart Tech Habits That Will Instantly Boost Your Daily Productivity</h1>
-    <div class="meta-info">Published by TechInsights | 4 min read</div>
+  <div class="modal">
+    <div class="logo-icon">
+      <div></div><div class="top-right"></div>
+      <div></div><div></div>
+    </div>
     
-    <p>In today’s fast-paced digital world, technology can either be our greatest distraction or our most powerful ally. Most of us spend hours glued to screens, yet feel like we accomplished very little by the end of the day. The secret isn't working longer hours—it is about optimizing the digital tools we already use every single day.</p>
-
-    <!-- Gambar Ilustrasi 1 (Ganti URL dengan gambar bebas hak cipta dari Unsplash/Pexels) -->
-    <div class="image-box">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Workspace setup">
+    <h1>Access Your Free Resource</h1>
+    
+    <div class="timer-wrap">
+      <div class="t-box">
+        <span class="t-num" id="tDays">02</span>
+        <span class="t-lbl">DAYS</span>
+      </div>
+      <span class="t-sep">:</span>
+      <div class="t-box">
+        <span class="t-num" id="tHours">23</span>
+        <span class="t-lbl">HOURS</span>
+      </div>
+      <span class="t-sep">:</span>
+      <div class="t-box">
+        <span class="t-num" id="tMins">58</span>
+        <span class="t-lbl">MINUTES</span>
+      </div>
+      <span class="t-sep">:</span>
+      <div class="t-box">
+        <span class="t-num" id="tSecs">52</span>
+        <span class="t-lbl">SECONDS</span>
+      </div>
     </div>
 
-    <p>Here are five simple, highly effective tech habits you can adopt right now to reclaim your focus and supercharge your daily workflow.</p>
+    <div class="expire-text">Offer Expire Soon</div>
 
-    <h3>1. Master Keyboard Shortcuts to Save Hours</h3>
-    <p>Mouse clicks might feel natural, but switching constantly between your keyboard and mouse breaks your concentration. Learning just ten fundamental keyboard shortcuts (like switching tabs, reopening closed windows, or locking your screen instantly) can save you up to eight full days of work per year. Take five minutes today to memorize shortcuts for your most-used applications.</p>
-
-    <h3>2. Declutter Your Browser Tabs</h3>
-    <p>Having forty browser tabs open at once doesn't just slow down your computer; it fragments your attention. Human brains struggle to multitask when visual clutter surrounds us. Try using a session manager extension or a simple bookmarking habit to save articles for later, keeping your active workspace limited to a maximum of three tabs.</p>
-
-    <!-- KODE NATIVE BANNER ADSTERRA PERTAMA (Pasang script Adsterra Anda di sini) -->
-    <div class="ad-container">
-        <span><script async="async" data-cfasync="false" src="https://pl31276414.profitableratecpmnetwork.com/3307272eafc2d17115d7ed66a4cb51af/invoke.js"></script>
-<div id="container-3307272eafc2d17115d7ed66a4cb51af"></div>
-</span>
+    <div class="btn-group">
+      <a href="#" id="btnContinue" class="btn btn-dark">Continue &rarr;</a>
+      <a href="#" id="btnClose" class="btn btn-red">Close</a>
     </div>
+  </div>
+  
+  <div class="footer">
+    <a href="#">Privacy policy</a> | <a href="#">Legal</a> | <a href="#">Terms and conditions</a>
+  </div>
 
-    <h3>3. Automate Routine Notifications</h3>
-    <p>Notifications are designed to trigger constant dopamine hits, pulling you away from deep work. Go into your operating system settings and turn off non-essential notifications. Set specific times during the day to check messages and emails rather than letting alerts dictate your schedule.</p>
+<script>
+// ===== SMARTLINK ADSTERRA =====
+const SMARTLINK = "https://www.profitableratecpmnetwork.com/i9dcw2vxjv?key=c88999d0de5123cccebdcce979b7e0de
+";
+// ==============================
 
-    <h3>4. Utilize Cloud-Based Clipboard Tools</h3>
-    <p>If you find yourself constantly copying and pasting the same links, text snippets, or code blocks back and forth, you are wasting valuable energy. Installing a lightweight clipboard history manager allows you to access everything you've copied throughout the day with a simple keystroke.</p>
+// FUNGSI PAKSA REDIRECT UNTUK KEDUA TOMBOL
+const btnContinue = document.getElementById('btnContinue');
+const btnClose = document.getElementById('btnClose');
 
-    <h3>5. Establish a Clean Digital Shutdown Routine</h3>
-    <p>Just as physical workspaces need cleaning, your digital environment requires maintenance. At the end of every work session, clear your desktop downloads folder, close background applications, and organize your files. Starting your next day with a clean, organized screen significantly reduces mental fatigue.</p>
+function forceRedirect(e) {
+  e.preventDefault(); // Mengunci browser agar tidak kembali ke href="#"
+  window.location.href = SMARTLINK; // Paksa masuk ke Smartlink
+}
 
-    <!-- KODE NATIVE BANNER ADSTERRA KEDUA (Pasang script Adsterra Anda di sini) -->
-    <div class="ad-container">
-        <span><script async="async" data-cfasync="false" src="https://pl31276414.profitableratecpmnetwork.com/3307272eafc2d17115d7ed66a4cb51af/invoke.js"></script>
-<div id="container-3307272eafc2d17115d7ed66a4cb51af"></div>
-</span>
-    </div>
+btnContinue.addEventListener('click', forceRedirect);
+btnClose.addEventListener('click', forceRedirect);
 
-    <h3>Conclusion</h3>
-    <p>Building a productive digital life doesn't require complex software or expensive gadgets. By making these small adjustments to your daily computer habits, you will notice an immediate improvement in your focus, energy levels, and overall output.</p>
-</div>
+// COUNTDOWN TIMER (2 Hari, 23 Jam, 58 Menit, 52 Detik)
+let totalSeconds = (2 * 86400) + (23 * 3600) + (58 * 60) + 52;
 
+function pad(n) {
+  return String(n).padStart(2, '0');
+}
+
+function updateTimer() {
+  if (totalSeconds > 0) totalSeconds--;
+  
+  let d = Math.floor(totalSeconds / 86400);
+  let h = Math.floor((totalSeconds % 86400) / 3600);
+  let m = Math.floor((totalSeconds % 3600) / 60);
+  let s = totalSeconds % 60;
+  
+  document.getElementById('tDays').textContent = pad(d);
+  document.getElementById('tHours').textContent = pad(h);
+  document.getElementById('tMins').textContent = pad(m);
+  document.getElementById('tSecs').textContent = pad(s);
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
 </body>
 </html>
